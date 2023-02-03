@@ -10,12 +10,18 @@ namespace EmployeeWageProgram
     {
         public void Attendance()
         {
+            int EMP_WAGE_PER_HR = 20;
+            int EmpHrs = 0;
+            int Empwage = 0;
+            int IS_EMP_FULL_TIME = 1;
             Random random = new Random();
             int empCheck=random.Next(0, 2);
-            if(empCheck==0)
-                Console.WriteLine("Employee Is Absent");
+            if (empCheck == IS_EMP_FULL_TIME)
+                EmpHrs = 0;
             else
-                Console.WriteLine("EMployee Is Present");
+                EmpHrs = 8;
+            Empwage = EmpHrs * EMP_WAGE_PER_HR;
+            Console.WriteLine("EMployee Wage Per Hour Is :" +Empwage);
         }
     }
 }
