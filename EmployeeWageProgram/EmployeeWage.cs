@@ -11,11 +11,13 @@ namespace EmployeeWageProgram
         public void Attendance()
         {
             int EMP_WAGE_PER_HR = 20;
-            int MONTHLY_WORKING_DAYS = 20;
-            const int  IS_EMP_FULL_TIME = 1, IS_EMP_PART_TIME = 2;
-            int EmpHrs = 0, Empwage = 0, totalempwage = 0;
-            for (int Day = 1; Day <= MONTHLY_WORKING_DAYS; Day++)
+            int MONTHLY_WORKING_DAYS = 20, MAX_WORKING_HRS = 100;
+            const int IS_EMP_FULL_TIME = 0, IS_EMP_PART_TIME = 1;
+            int EmpHrs = 0, Totalempwage = 0, empwage = 0;
+            int totalworkigDays = 0, totalempHrs = 0, totalEMpWage = 0;
+            while (totalempHrs < MAX_WORKING_HRS && totalworkigDays < MONTHLY_WORKING_DAYS)
             {
+                totalworkigDays++;
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
@@ -30,11 +32,13 @@ namespace EmployeeWageProgram
                         EmpHrs = 0;
                         break;
                 }
-                Empwage = EmpHrs * EMP_WAGE_PER_HR;
-                Console.WriteLine("wage  :"+Empwage + " For day :"+Day );
-                totalempwage += Empwage;
+                empwage = EmpHrs * EMP_WAGE_PER_HR;
+                totalempHrs += EmpHrs;
+                Console.WriteLine("Employee Working Days:" + totalworkigDays + " Employee Working Hrs :" + empwage);
+                 totalEMpWage+= empwage;
             }
-            Console.WriteLine("\nTotal Wage of Employee For a Month is :"+totalempwage);
+            Totalempwage = empwage * EMP_WAGE_PER_HR;
+            Console.WriteLine("Total Wage of Employee is :" + Totalempwage +"Total Epployee Hrs :"+totalempHrs);
         }
     }
 }
