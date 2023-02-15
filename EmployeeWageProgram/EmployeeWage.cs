@@ -9,12 +9,11 @@ namespace EmployeeWageProgram
     public class EmployeeWage
     {
         const int IS_EMP_FULL_TIME = 0, IS_EMP_PART_TIME = 1;
-        public void Attendance()
+        public void Attendance(string company,int MAX_WORKING_HRS,int MONTHLY_WORKING_DAYS,int EMP_WAGE_PER_HR)
         {
-            int EMP_WAGE_PER_HR = 20;
-            int MONTHLY_WORKING_DAYS = 20, MAX_WORKING_HRS = 100;
             int EmpHrs = 0, Totalempwage = 0, empwage = 0;
             int totalworkigDays = 0, totalempHrs = 0, totalEMpWage = 0;
+            Console.WriteLine("\nCalculating Wage For Company" + company+"\n");
             while (totalempHrs < MAX_WORKING_HRS && totalworkigDays < MONTHLY_WORKING_DAYS)
             {
                 totalworkigDays++;

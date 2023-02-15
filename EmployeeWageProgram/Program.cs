@@ -12,7 +12,8 @@ namespace EmployeeWageProgram
         {
             Console.WriteLine("Welcome To Employee Wage Program");
             EmployeeWage employeeWage= new EmployeeWage();
-            employeeWage.Attendance();
+            employeeWage.Attendance("D-Mart",100,15,20);
+            employeeWage.Attendance("Slice", 150, 25, 20);
             Console.ReadLine();
         }
     }
