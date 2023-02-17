@@ -9,12 +9,23 @@ namespace EmployeeWageProgram
     public class EmployeeWage
     {
         const int IS_EMP_FULL_TIME = 0, IS_EMP_PART_TIME = 1;
-        public void Attendance(string company,int MAX_WORKING_HRS,int MONTHLY_WORKING_DAYS,int EMP_WAGE_PER_HR)
+        private string company;
+        private int MAX_WORKING_HRS;
+        private int MONTHLY_WORKING_DAYS;
+        private int EMP_WAGE_PER_HR;
+        private int totalEmpWage;
+        public EmployeeWage(string company, int MAX_WORKING_HRS, int MONTHLY_WORKING_DAYS, int EMP_WAGE_PER_HR)
         {
-            int EmpHrs = 0, Totalempwage = 0, empwage = 0;
-            int totalworkigDays = 0, totalempHrs = 0, totalEMpWage = 0;
-            Console.WriteLine("\nCalculating Wage For Company" + company+"\n");
-            while (totalempHrs < MAX_WORKING_HRS && totalworkigDays < MONTHLY_WORKING_DAYS)
+            this.company = company;
+            this.MAX_WORKING_HRS= MAX_WORKING_HRS;
+            this.MONTHLY_WORKING_DAYS= MONTHLY_WORKING_DAYS;
+            this.EMP_WAGE_PER_HR= EMP_WAGE_PER_HR;
+        }
+        public void Attendance()
+        {
+            int EmpHrs = 0, totalempHrs = 0, totalworkigDays = 0;
+            Console.WriteLine("\nCalculating Wage For Company:- " + company+"\n");
+            while (totalempHrs <= this.MAX_WORKING_HRS && totalworkigDays < this.MONTHLY_WORKING_DAYS)
             {
                 totalworkigDays++;
                 Random random = new Random();
@@ -31,13 +42,15 @@ namespace EmployeeWageProgram
                         EmpHrs = 0;
                         break;
                 }
-                empwage = EmpHrs * EMP_WAGE_PER_HR;
                 totalempHrs += EmpHrs;
-                Console.WriteLine("Employee Working Days:" + totalworkigDays + " Employee Working Hrs :" + empwage);
-                 totalEMpWage+= empwage;
+                Console.WriteLine("Employee Working Days:" + totalworkigDays + " Employee Working Hrs :" + EmpHrs);
             }
-            Totalempwage = empwage * EMP_WAGE_PER_HR;
-            Console.WriteLine("Total Wage of Employee is :" + Totalempwage +"Total Epployee Hrs :"+totalempHrs);
+            totalEmpWage = totalempHrs * EMP_WAGE_PER_HR;
+            Console.WriteLine("Total Wage of Employee for Company :" +company +"Total Epployee Wage :"+ totalEmpWage);
+        }
+        public string tostring()
+        {
+            return "Total Emplaoyee Wage For Comapny :" + this.company + "is :" + this.totalEmpWage;
         }
     }
 }
